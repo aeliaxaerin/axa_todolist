@@ -1,0 +1,181 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry GriffinPixz | To Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/icon" href="img/WitchHat_SweetBlue.png">
+    <script src="https://kit.fontawesome.com/7327543dfd.js" crossorigin="anonymous"></script>
+</head>
+
+<body> -->
+<%- include("header") -%>
+    <div class="gfp-container">
+        <div class="gfp-header">
+            <div class="gfp-header-images">
+                <img src="img/WitchHat2.png" class="witch-hat">
+                <img src="img/KannaBabyAnimated.gif" class="gfp-img">
+            </div>
+            <h1 class="gfp-title">Soul Exodus</h1>
+            <p class="gfp-header-subtitle">Web Development & UX/UI Design</p>
+            <!-- <p class="gfp-header-subtitle">Full-Stack Developer & Experienced UX/UI Designer</p> -->
+            <p class="welcome">Welcome to Soul Exodus's Motivational To Do List!</p>
+            <p class="inspire">"Your goals are only realized when you put in the work and consistent efforts. Get started today and complete the tasks necessary to reach your goals!"</p>
+
+            <%- include("todonav") -%>
+        </div>
+    </div> 
+
+    <hr>
+
+    <div class="main">
+    
+        <h2 class="date"><%= listTitle %></h2>
+
+        <form action="/" method="POST" class="form">
+            <input type="text" name="newItem" placeholder="What goals do you want to achieve today?" class="user-todo-input" autocomplete="off" required>
+            <button class="add-task-btn" type="submit" name="toDoListTitle" value=<%= listTitle %>>Add Task</button>
+        </form>
+
+        <div class="todolist-container">
+            <ul class="todo-list" id="todos">
+
+                <% for (var i = 0; i < toDoListItems.length; i++) { %>
+
+                    <% let count = "num"+i %>
+                    
+                    <!-- <li class="todo-list-item" onClick="(function() { alert('Hey i am calling'); })"> -->
+                    <li class="todo-list-item"">
+                        <div class="todo-list-item-content">
+                            <div class="todo-no-wrap">
+                                <!-- <input type="checkbox"> -->
+                                <span class="todo-no"><%= 1+i %></span>
+                            </div>
+                            <div class="todo-list-item-text"><%= toDoListItems[i] %></div>
+                        </div>
+                        <!-- <i class="fa-solid fa-broom todo-list-item-icon"></i> -->
+                        <!-- <input type="checkbox" class="todo-list-item-checkbox"> -->
+                    </li> 
+                <% } %>
+
+            </ul>
+        </div>
+
+        <!-- <p>&copy; 2022 GriffinPixz at Penn Techworks LLC</p> -->
+        <!-- <p>&copy; 2022 GriffinPixz at GriffinWitch LLC</p> -->
+        <p class="copyright">&copy; 
+            <span><%= thisYear %></span>
+            <span style="padding: 0 4px;">Soul Exodus LLC</span>
+            <span class="creator">By <a href="https://github.com/aeliaxaerin" target="_blank">AeliaxAerin</a></span>
+            <!-- <img src="img/MerryGriffinPixz.png" class="copy-img"> -->
+        </p>
+    
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/completed-task.js"></script>
+    <script src="js/nav.js"></script>
+
+    <script>
+
+        // $('li.todo-list-item').on('click', function (e) {
+        //     let target = $(e.target);
+        //     if (target.is('li.todo-list-item')) {
+        //         target.toggleClass('completed-task').slideToggle();
+        //     }
+        // });
+
+        // $('li.todo-list-item').on('click', function (e) {
+        //     let target = $(e.target);
+        //     historyToDoItems.push(target);
+        //     target.hide();
+        //     // if (target.is('li.todo-list-item')) {
+        //     //     target.hide();
+        //     // }
+        // });
+
+        // ***********************************************************
+
+
+        // $("li").each(function (i) { 
+        //     this.id = "todo"+i; 
+        // });
+
+        // $('#todos li').each(function (i, todo) {
+        //         todo.id = i + 1;
+        //     });
+
+        // function completed() {
+        //     $(".todo-list-item").toggleClass("completed-task")
+        // }
+
+        // document.querySelectorAll(".todo-list-item")
+
+        // $('.todo-list').on('click', '.todo-list-item', function (e) {
+        //     // e.preventDefault();
+        //     var target = $(e.target);
+        //     // var parentUl = target.closest('.todo-list');
+        //     // Find all links inside the current parent ul element.
+        //     // parentUl.find('.todo-list-item').removeClass('completed-task');
+        //     target.toggleClass('completed-task');
+        // });
+
+        // function completed(e) {
+        //     $(e).toggleClass("completed-task")
+        //     $('.todo-list-item', $(this).closest('ul')).toggleClass("completed-task")
+        //     $("#count" + i).toggleClass("completed-task")
+        // }
+
+        // $('.button-switch li a').click(function (e) {
+        //         e.preventDefault();
+        //         $('li a', $(this).closest('ul')).removeClass('active');
+        //         $(this).addClass('active');
+        //     });
+
+            // function completed() {
+                    // let num = 0;
+                    // let itemNum = "#item" + num;
+                    // $(itemNum).attr("class", "completed-task")
+                // $(".todo-list-item").attr("class", "completed-task")
+
+                // $(".todo-list-item").toggleClass("completed-task")
+                // $(toDoListItems[i]).ON("click", function () { 
+                //     this.toggleClass("completed-task")
+                // }
+                // this.toggleClass("completed-task")
+                
+                // if (!$(".todo-list-item").hasClass("completed-task")) {
+                //     $(".todo-list-item").attr("class", "completed-task")
+                // } else {
+                //     $(".todo-list-item").removeClass("completed-task")
+                // }
+            // }
+
+            // toDoItems.forEach(todo => {
+            //         let count = 0;
+            //         let counter = "todo" + count;
+
+            //         todo.attr("id", counter);
+            //     });
+
+    </script>
+<%- include("footer") -%>
+<!-- </body>
+
+</html> -->
+
+<!-- <i class="fa-solid fa-wand-sparkles"></i>
+<i class="fa-solid fa-broom"></i>
+<i class="fa-solid fa-book-sparkles"></i>
+<i class="fa-solid fa-hat-witch"></i>
+<i class="fa-solid fa-hat-wizard"></i>
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+<i class="fa-solid fa-wand-magic"></i>
+<i class="fa-solid fa-hand-holding-magic"></i>
+<i class="fa-solid fa-cauldron"></i> -->
